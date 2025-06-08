@@ -38,16 +38,20 @@ function loadSong(index) {
   title.textContent = song.title;
   musicCount.textContent = `Play music ${index + 1} / ${songs.length}`;
   audio.load();
+  cover.classList.remove("rotating"); // Yangi qo‘shiq yuklanganda to‘xtatish
+  playBtn.innerHTML = "▶️";
 }
 
 function playSong() {
   audio.play();
   playBtn.innerHTML = "❚❚";
+  cover.classList.add("rotating"); // Rasm aylantirish
 }
 
 function pauseSong() {
   audio.pause();
   playBtn.innerHTML = "▶️";
+  cover.classList.remove("rotating"); // Rasm to‘xtatish
 }
 
 playBtn.addEventListener("click", () => {
